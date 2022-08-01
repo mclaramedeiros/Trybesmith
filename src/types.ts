@@ -5,4 +5,11 @@ export type Products = {
   orderId: number
 };
 
+export type User = {
+  username: string
+  classe: string
+  level: number
+  password: string
+}; 
+
 export type AddProducts = Omit<Products, 'id' | 'orderId'>;
