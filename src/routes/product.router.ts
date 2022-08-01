@@ -1,10 +1,11 @@
 // const express = require('express');
 
 import { Router } from 'express';
-import createProduct from '../controller/productsController';
+import productsController from '../controller/productsController';
 
 const router = Router();
 
-router.post('/', createProduct);
+router.post('/', productsController.createProduct);
+router.get('/', productsController.getAll);
 
 export default router;

@@ -27,4 +27,9 @@ const getById = async (id: Products['id']) => {
   return result as Products;
 };
 
-export { createProduct, getById };
+const getAll = async () => {
+  const [query] = await connection.execute('SELECT * from Trybesmith.Products');
+  return query;
+};
+
+export default { createProduct, getById, getAll };

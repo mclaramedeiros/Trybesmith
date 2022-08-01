@@ -1,11 +1,16 @@
 import { AddProducts } from '../types';
-import { createProduct, getById } from '../models/productModel';
+import productModel from '../models/productModel';
 
-const create = async (product: AddProducts) => {
-  const id = await createProduct(product);
-  const result = await getById(id);
+const createProduct = async (product: AddProducts) => {
+  const id = await productModel.createProduct(product);
+  const result = await productModel.getById(id);
   const { orderId, ...newObj } = result;
   return newObj;
 };
 
-export default create;
+const getAll = async () => {
+  const products = await productModel.getAll();
+  return products;
+};
+
+export default { createProduct, getAll };
