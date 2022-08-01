@@ -12,4 +12,10 @@ export type User = {
   password: string
 }; 
 
+export type Order = {
+  id: number;
+  userId: number;
+  productsIds: number;
+};
+
 export type AddProducts = Omit<Products, 'id' | 'orderId'>;

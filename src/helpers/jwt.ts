@@ -4,8 +4,10 @@ import { User } from '../types';
 
 dotenv.config();
 
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+
 const createToken = (data: Omit<User, 'password'>) => {
-  const token = jwt.sign(data, process.env.JWT_SECRET as string);
+  const token = jwt.sign(data, JWT_SECRET as string);
   return token;
 };
 
